@@ -1,0 +1,56 @@
+import random
+def sayi_bul(sayi):
+
+    sayi_bul_list = []
+    for i in sayi:
+        sayi_bul_list += [i]
+    list_tahmin = []
+    sayac = 0
+    while list_tahmin != sayi_bul_list:
+        list_tahmin = []
+        tahmin = input("4 basamakli bir sayi tahmin edin:")
+        sayac +=1
+        if len(tahmin) != 4:
+            print("4 basamakli bir sayi girmelisiniz!!!")
+            continue
+        for i in tahmin:
+            if i in list_tahmin:
+                list_tahmin = ""
+                print("Ayni rakami birden cok kez kullanamazsiniz!!!")
+                break
+
+            list_tahmin += [i]
+            if list_tahmin == sayi_bul_list:
+                print("Tebrikler!!!.. Gizli sayi {}'yi {}. seferde dogru tahmin ettiniz!.. ".format(sayi, sayac))
+
+        print(list_tahmin)
+        dogru_yerde = 0
+        yanlis_yerde = 0
+        for k in list_tahmin:
+            if k in sayi_bul_list:
+                if list_tahmin.index(k) == sayi_bul_list.index(k):
+                    dogru_yerde += 1
+                else:
+                    yanlis_yerde += 1
+
+            else:
+                yanlis_yerde += 0
+                dogru_yerde += 0
+        print("+", dogru_yerde, ", -", yanlis_yerde)
+
+
+def rastgele():
+    bulun_sayi = ""
+    while len(bulun_sayi) != 4:
+        if len(bulun_sayi) == 4:
+            break
+        x= random.randint(0, 9)
+        y = str(x)
+        if len(bulun_sayi) == 0 and x == 0:
+            continue
+        elif y not in bulun_sayi:
+            bulun_sayi += str(x)
+    return bulun_sayi
+
+sayi = rastgele()
+sayi_bul(sayi)
