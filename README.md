@@ -9,3 +9,5 @@
  as +1 and -1. Because the user correctly guessed the digit of 2 numbers. User predicted 2 correctly. 
  Since the number "2" exists in a different digit despite the number that should be estimated, the program has produced
  the value "-1" for this. However, since the number "4" was in correct digit, code produced the value +1.
+ 
+ I woluld like to make an web interface or an App for this code.
